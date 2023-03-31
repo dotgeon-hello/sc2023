@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>201877789698-bosjomdn6a9e6guakccthr3ia7mumedp.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.201877789698-bosjomdn6a9e6guakccthr3ia7mumedp</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>201877789698-8t4uu805qqtfaflq2ciiphsnaa4111bk.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCVzu1cxIBex8NgK23voa2YEmoRxHn8zuU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>201877789698</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.dotgeon.sc2023</string>
+	<key>PROJECT_ID</key>
+	<string>codename-sc</string>
+	<key>STORAGE_BUCKET</key>
+	<string>codename-sc.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:201877789698:ios:5853215b4f07c9c3af1b1b</string>
+</dict>
+</plist>
