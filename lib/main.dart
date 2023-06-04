@@ -13,15 +13,17 @@ import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'index.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initFirebase();
   await FirebaseAppCheck.instance.activate(
-      //webRecaptchaSiteKey: "6LeZcywlAAAAAM234GAOhjlPL1-aF6EE1UDuxfJu",
+      webRecaptchaSiteKey: "6LeZcywlAAAAAM234GAOhjlPL1-aF6EE1UDuxfJu",
       androidProvider: AndroidProvider.debug);
 
   await FlutterFlowTheme.initialize();
+  await dotenv.load(fileName: ".env");
 
   runApp(MyApp());
 }

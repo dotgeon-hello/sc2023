@@ -17,16 +17,27 @@ You must also have an OpenAI API Key and Google Cloud Credentials (credentials.j
 2. After finishing the above commands, you should set up the .env file in the root directory of the project. The .env file should contain the following information.
 
     ```
-    OPENAI_API_KEY=(Your OpenAI API Key)
-    GOOGLECLOUD_CREDENTIALS=(Your Google Cloud Credentials in JSON format)
+    OPENAI_API_KEY=(REQUIRED: Your OpenAI API Key)
+    GOOGLECLOUD_CREDENTIALS=(REQUIRED: Your Google Cloud Credentials in JSON format)
+
+    OPENAI_API_SERVICE_MODEL=(OPTIONAL: OpenAI Model for the Summarization/Highlighting feature.)
+    OPENAI_API_CHAT_TYPE=(OPTIONAL: OpenAI Type for the Chat feature. Either 'chat' or 'completion'.)
+    OPENAI_API_CHAT_MODEL=(OPTIONAL: OpenAI Model for the Chat feature.)
     ```
 
     Note that the Google Cloud Credentials should be in JSON format. For example, the following is a sample of Google Cloud Credentials in JSON format.
 
     ```
     OPENAI_API_KEY=...
+    OPENAI_API_SERVICE_MODEL=...
+    OPENAI_API_CHAT_TYPE=chat
+    OPENAI_API_CHAT_MODEL=gpt-3.5-turbo
     GOOGLECLOUD_CREDENTIALS={"type": "service_account", "project_id": "...", "private_key_id": "...", "private_key": "...", "client_email": "...", "client_id": "...", "auth_uri": "...", "token_uri": "...",  "auth_provider_x509_cert_url": "...", "client_x509_cert_url": "..."}
     ```
+
+    - Note for ``OPENAI_API_SERVICE_MODEL`` and ``OPENAI_API_CHAT_MODEL``: In order to customize the OpenAI model (including a fine-tuned one), you need to set OPENAI_API_SERVICE_MODEL or OPENAI_API_CHAT_MODEL (requires OPENAI_API_CHAT_TYPE to completion for this case) to the custom fine-tuned AI model (e.g. ```davinci:ft-...```).
+
+        - In our case, we have used our custom fine-tuned model ```davinci:ft-skku``` for the improved highlighting and summarization experience. Due to the OpenAI API's limitation, we cannot provide the model to the public. However, you can create your own fine-tuned model using the OpenAI API. Please refer to the [OpenAI API Documentation](https://beta.openai.com/docs/api-reference/fine-tunes/create) for more information.
 
 3. After setting the environment file, you can run the project on the device using the command below.
 

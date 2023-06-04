@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages_sc2023/sc_u_note_write/sc_u_note_write_widget.dart';
+import '/pages_sc2023/sc_u_chat/sc_u_chat_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -15,9 +16,12 @@ export 'sc_u_note_read_model.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+import '/pages_sc2023/sc_u_chat/api/chat_api.dart';
+
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 final openAiApiKey = dotenv.env['OPENAI_API_KEY'];
+final openAiServiceModel = dotenv.env['OPENAI_API_SERVICE_MODEL'] ?? "text-davinci-003";
 final openAiApiUrl = 'https://api.openai.com/v1/completions';
 
 class ScUNoteReadWidget extends StatefulWidget {
@@ -90,7 +94,7 @@ class _ScUNoteReadWidgetState extends State<ScUNoteReadWidget>
         'Authorization': 'Bearer $openAiApiKey'
       },
       body: jsonEncode({
-        "model": "text-davinci-003",
+        "model": openAiServiceModel,
         'prompt': prompt,
         'max_tokens': 1000,
         'temperature': 0,
@@ -181,7 +185,7 @@ class _ScUNoteReadWidgetState extends State<ScUNoteReadWidget>
         'Authorization': 'Bearer $openAiApiKey'
       },
       body: jsonEncode({
-        "model": "text-davinci-003",
+        "model": openAiServiceModel,
         'prompt': prompt,
         'max_tokens': 1000,
         'temperature': 0,
@@ -214,6 +218,42 @@ class _ScUNoteReadWidgetState extends State<ScUNoteReadWidget>
           widget.courseIndexTitle!,
           style: FlutterFlowTheme.of(context).subtitle1,
         ),
+        actions: [
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+            child: FFButtonWidget(
+              onPressed: () async {
+                await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ScUChatWidget(
+                        courseName: widget.courseName,
+                        courseIndexTitle: widget.courseIndexTitle,
+                        contentID: widget.contentID),
+                  ),
+                );
+              },
+              text: "Chat",
+              options: FFButtonOptions(
+                width: 100.0,
+                height: 40.0,
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                color: FlutterFlowTheme.of(context).secondaryColor,
+                textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                      fontFamily: 'Outfit',
+                      color: Colors.white,
+                      fontWeight: FontWeight.normal,
+                    ),
+                borderSide: BorderSide(
+                  color: Colors.transparent,
+                  width: 1.0,
+                ),
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+            ),
+          ),
+        ],
         centerTitle: false,
         elevation: 0.0,
       ),

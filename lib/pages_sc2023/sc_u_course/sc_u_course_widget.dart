@@ -14,6 +14,8 @@ import 'package:provider/provider.dart';
 import 'sc_u_course_model.dart';
 export 'sc_u_course_model.dart';
 
+import '/pages_sc2023/sc_u_chat/sc_u_chat_widget.dart';
+
 class ScUCourseWidget extends StatefulWidget {
   const ScUCourseWidget({
     Key? key,
